@@ -22,8 +22,8 @@ class User(models.Model):
     age = models.PositiveIntegerField(null=True, blank=True)
     gender = models.BooleanField(null=True, blank=True)
     bio = models.TextField(blank=True)
-    followings = models.ManyToManyField('User', null=True)
-    bookmarks = models.ManyToManyField('Book', null=True)
+    followings = models.ManyToManyField('User')
+    bookmarks = models.ManyToManyField('Book')
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
