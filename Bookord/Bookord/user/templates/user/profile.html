@@ -1,1 +1,21 @@
-Hey we are in PROFILE *_*
+{% extends "user/basic.html" %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{% static 'user/profile.css' %}">
+{% endblock %}
+
+
+{% block body %}
+
+hello {{ user.first_name }} ^_^
+welcome to Bookord $$)
+<br>
+
+{% for book in user.book_set.all %}
+<a href="{% url 'core:index' user.username book.id %}">
+    {{book.title}}
+</a>
+{% endfor %}
+
+{% endblock %}
