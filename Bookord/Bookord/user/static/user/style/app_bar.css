@@ -1,0 +1,227 @@
+.hbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.vbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand {
+  position: relative;
+  margin-left: 20pt;
+  font-size: xx-large;
+  padding: 30pt;
+  background-color: rgb(247, 247, 247);
+  font-family: "Audiowide", sans-serif; /* this together with the <link> tag in html is to add a font*/
+  color: rgb(88, 88, 88);
+  border-radius: 30% 70% 38% 62% / 30% 30% 70% 70%; /*from https://9elements.github.io/fancy-border-radius/*/
+  box-shadow: -12px -6px 16px 0px rgb(214, 214, 214);
+  animation-duration: 1s;
+  animation-name: brand;
+  animation-iteration-count: 1;
+}
+
+.description {
+  position: absolute;
+  top: 60%;
+  left: 8%;
+  padding: 10pt;
+  margin-left: 3vw;
+  margin-top: 2vw;
+  font-size: medium;
+  background-color: rgb(247, 247, 247);
+  font-family: "Audiowide", sans-serif;
+  color: rgb(88, 88, 88);
+  border-radius: 30% 70% 75% 25% / 30% 30% 70% 70%;
+  box-shadow: -6px -3px 12px 0px rgb(182, 182, 182);
+  animation-duration: 1s;
+  animation-name: brand;
+  animation-iteration-count: 1;
+}
+
+/*to fill the extra space in flex dsplays*/
+.filler {
+  flex-grow: 1;
+}
+
+a {
+  font-family: Tahoma, serif;
+  color: rgb(88, 88, 88);
+  font-weight: bold;
+  padding: 15pt 15pt;
+  height: 15pt;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: rgb(249, 249, 249);
+  color: rgb(164, 23, 65);
+  transition-duration: 0.5s;
+  border-color: transparent rgb(249, 249, 249) transparent transparent;
+}
+
+#appbar {
+  padding-top: 15pt;
+  margin-top: -80pt;
+  justify-content: flex-end;
+  position: sticky;
+  top: 0;
+}
+
+.navbar {
+  border-radius: 30% 70% 40% 60% / 36% 14% 86% 64%;
+  background-color: rgb(249, 249, 249);
+  box-shadow: 6px -3px 16px 0px rgb(182, 182, 182);
+  padding: 45pt;
+  animation-duration: 1s;
+  animation-name: navbar;
+  animation-iteration-count: 1;
+}
+
+#notif {
+  display: none;
+}
+
+#cloud {
+  background-color: rgb(249, 249, 249);
+  box-shadow: 6px -3px 12px 0px rgb(182, 182, 182);
+  border-radius: 30% 70% 40% 60% / 44% 19% 81% 56%;
+  position: absolute;
+  margin-top: 150pt;
+  min-width: 28vw;
+  min-height: 28vw;
+  color: rgb(88, 88, 88);
+  padding: 30pt;
+  display: flex;
+  flex-direction: column;
+  font-family: Tahoma, serif;
+  animation-duration: 10s;
+  animation-name: hang;
+  animation-iteration-count: 1;
+}
+
+.zero {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+/*this is how to create a vertical line*/
+#line {
+  position: absolute;
+  height: 600pt;
+  border-left: 5px dashed darkgray;
+  bottom: 100%;
+  left: 50%;
+}
+
+@keyframes hang {
+  from {
+    margin-top: -150pt;
+  }
+  10% {
+    margin-top: 160pt;
+    transform: rotate(10deg);
+    transform-origin: top center;
+  }
+  20% {
+    margin-top: 140pt;
+  }
+  30% {
+    margin-top: 155pt;
+    transform: rotate(-9deg);
+    transform-origin: top center;
+  }
+  40% {
+    margin-top: 150pt;
+  }
+  50% {
+    margin-top: 152pt;
+    transform: rotate(5deg);
+    transform-origin: top center;
+  }
+  60% {
+    margin-top: 150pt;
+  }
+  70% {
+    margin-top: 150pt;
+    transform: rotate(-4deg);
+    transform-origin: top center;
+  }
+  90% {
+    margin-top: 150pt;
+    transform: rotate(2deg);
+    transform-origin: top center;
+  }
+  100% {
+    margin-top: 150pt;
+    transform: rotate(0deg);
+    transform-origin: top center;
+  }
+}
+
+/*this is how you create animation in css*/
+@keyframes brand {
+  from {
+    margin-top: -25pt;
+    margin-left: -25pt;
+  }
+  90% {
+  }
+}
+
+@keyframes navbar {
+  from {
+    margin-top: -80pt;
+    margin-right: -80pt;
+  }
+  100% {
+  }
+}
+
+/*the -anim classes are for scroll event*/
+.brand-anim {
+  padding: 0pt;
+  background-color: transparent;
+  box-shadow: -12px -6px 16px 0px transparent;
+  transition: all 0.5s;
+}
+
+.description-anim {
+  padding-top: 5pt;
+  padding-bottom: 0pt;
+  margin-top: 1vw;
+  font-size: xx-small;
+  background-color: transparent;
+  color: transparent;
+  box-shadow: -6px -3px 12px 0px transparent;
+  top: 30%;
+  left: 0%;
+  transition: all 0.5s;
+}
+
+.navbar-anim {
+  background-color: transparent;
+  box-shadow: 6px -3px 16px 0px transparent;
+  padding: 5pt;
+  transition: all 0.5s;
+}
+
+.zero-anim {
+  transform: translateY(-650pt);
+  transition: all 6s;
+}
+
+.brand-container-anim {
+  background-color: grey;
+  transition: all 0.5s;
+}
+
+.appbar-anim {
+  background-color: grey;
+  transition: all 0.5s;
+}

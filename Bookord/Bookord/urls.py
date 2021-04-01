@@ -19,7 +19,7 @@ from django.urls.conf import include
 from .user import views
 
 urlpatterns = [
-    path('', views.home_view),
+    path('', views.homepage_view, name='homepage'),
     path('books/', include('Bookord.core.urls')),
     path('users/', include('Bookord.user.urls')),
     path('admin/', admin.site.urls),

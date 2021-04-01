@@ -5,8 +5,8 @@ from .models import User
 # Create your views here.
 
 
-def home_view(request):
-    return render(request, 'user/home.html')
+def homepage_view(request):
+    return render(request, 'user/homepage.html')
 
 
 def index_view(request):
@@ -16,7 +16,8 @@ def index_view(request):
 def profile_view(request, username):
     user = get_object_or_404(User, pk=username)
     context = {
-        'user': user
+        'user': user,
+        'navbar_items': [{'title': 'FRIENDS', 'link': 'hi'}, {'title': 'BOOKS', 'link': 'hi'}, {'title': 'PROFILE', 'link': 'hi'}, {'title': 'HOME', 'link': 'hi'}]
     }
     return render(request, 'user/profile.html', context)
 
