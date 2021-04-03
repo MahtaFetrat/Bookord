@@ -1,3 +1,9 @@
-div {
-  color: white;
+
+/*watch here for more customization on grid layout
+https://css-tricks.com/snippets/css/complete-guide-grid/#:~:text=CSS%20Grid%20Layout%20is%20the%20most%20powerful%20layout,to%20that%20element%E2%80%99s%20children%20%28which%20become%20Grid%20Items%29.*/
+.grid {
+  padding: 2vw;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  column-gap: 1vw;
 }

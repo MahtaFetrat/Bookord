@@ -126,3 +126,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#adding another directory where 'static' is going to look for in addition to the dir of 'static/' in each of the installed apps
+#in this case it looks in the same directory where 'media/' is so that an ImageField path starting like 'media/user_username1' can be found by statics
+STATICFILES_DIRS = [
+    BASE_DIR / "",
+]
