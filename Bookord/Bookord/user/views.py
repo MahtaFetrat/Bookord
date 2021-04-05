@@ -17,7 +17,8 @@ def profile_view(request, username):
     user = get_object_or_404(User, pk=username)
     context = {
         'user': user,
-        'navbar_items': [{'title': 'FRIENDS', 'link': 'hi'}, {'title': 'BOOKS', 'link': 'hi'}, {'title': 'PROFILE', 'link': 'hi'}, {'title': 'HOME', 'link': 'hi'}]
+        'navbar_items': [{'title': 'FRIENDS', 'link': 'hi'}, {'title': 'BOOKS', 'link': 'hi'}, {'title': 'PROFILE', 'link': 'hi'}, {'title': 'HOME', 'link': 'hi'}],
+        'cloud': False
     }
     return render(request, 'user/profile.html', context)
 

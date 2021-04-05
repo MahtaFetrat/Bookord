@@ -1,0 +1,82 @@
+#cloud {
+  background-color: rgb(249, 249, 249);
+  box-shadow: 6px -3px 12px 0px rgb(182, 182, 182);
+  border-radius: 30% 70% 40% 60% / 44% 19% 81% 56%;
+  position: absolute;
+  margin-top: 150pt;
+  min-width: 28vw;
+  min-height: 28vw;
+  color: rgb(88, 88, 88);
+  padding: 30pt;
+  display: flex;
+  flex-direction: column;
+  font-family: Tahoma, serif;
+  animation-duration: 10s;
+  animation-name: hang;
+  animation-iteration-count: 1;
+}
+
+.zero {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+/*this is how to create a vertical line*/
+#line {
+  position: absolute;
+  height: 600pt;
+  border-left: 5px dashed darkgray;
+  bottom: 100%;
+  left: 50%;
+}
+
+@keyframes hang {
+  from {
+    margin-top: -150pt;
+  }
+  10% {
+    margin-top: 160pt;
+    transform: rotate(10deg);
+    transform-origin: top center;
+  }
+  20% {
+    margin-top: 140pt;
+  }
+  30% {
+    margin-top: 155pt;
+    transform: rotate(-9deg);
+    transform-origin: top center;
+  }
+  40% {
+    margin-top: 150pt;
+  }
+  50% {
+    margin-top: 152pt;
+    transform: rotate(5deg);
+    transform-origin: top center;
+  }
+  60% {
+    margin-top: 150pt;
+  }
+  70% {
+    margin-top: 150pt;
+    transform: rotate(-4deg);
+    transform-origin: top center;
+  }
+  90% {
+    margin-top: 150pt;
+    transform: rotate(2deg);
+    transform-origin: top center;
+  }
+  100% {
+    margin-top: 150pt;
+    transform: rotate(0deg);
+    transform-origin: top center;
+  }
+}
+
+.zero-anim {
+  transform: translateY(-650pt);
+  transition: all 6s;
+}

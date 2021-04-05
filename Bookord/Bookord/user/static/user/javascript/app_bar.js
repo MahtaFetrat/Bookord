@@ -10,7 +10,6 @@ window.addEventListener(
       document.getElementById("description").classList.add("description-anim");
       document.getElementById("brand").classList.add("brand-anim");
       document.getElementById("navbar").classList.add("navbar-anim");
-      document.getElementById("zero").classList.add("zero-anim");
     }
   },
   true
