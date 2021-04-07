@@ -3,6 +3,7 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" type="text/css" href="{% static 'user/style/profile.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script src="{% static 'user/javascript/profile.js' %}"></script>
 {% endblock %}
 
@@ -15,18 +16,30 @@
     <div class="grid">
         <!--read about |add: filter to be able to have some dynamic link like : src="... static 'pathfoo/'|add:user.pathfoo|add:'pathcontinuum' ..."-->
         <!--use .url to get path of model ImageField-->
-        <img src="{% static user.profile_image.url %}" style="object-fit: contain; width: 100%;" />
-        <h5 style="background-color: rgb(209, 198, 198);">some body here</h5>
-        <h1 style="background-color: rgb(105, 169, 214);">some vertical box here</h1>
-        <h5 style="background-color: rgb(218, 201, 204);">some body here</h5>
-        <h1 style="background-color: rgb(105, 169, 214);">some vertical box here</h1>
-        <h5 style="background-color: rgb(218, 201, 204);">some body here</h5>
-        <h1 style="background-color: rgb(105, 169, 214);">some vertical box here</h1>
-        <h5 style="background-color: rgb(218, 201, 204);">some body here</h5>
-        <h1 style="background-color: rgb(105, 169, 214);">some vertical box here</h1>
-        <h5 style="background-color: rgb(218, 201, 204);">some body here</h5>
-        <h1 style="background-color: rgb(105, 169, 214);">some vertical box here</h1>
-        <h5 style="background-color: rgb(218, 201, 204);">some body here</h5>
+        <div id="side-pannel">
+            <img src="{% static user.profile_image.url %}" id="pic" style="object-fit: contain; width: 100%;" />
+            <div>
+                <strong>{{ user.first_name }}</strong> <strong>{{ user.last_name }}</strong><br><br>
+                <i class="material-icons">format_quote</i><i>{{ user.bio }}</i><br><br>
+                <!--find icons here https://material-ui.com/components/material-icons/-->
+                <!--also change icons' CamelCaes name to snake_case to get it work-->
+                <i class="material-icons" id="coin">attach_money</i><span style="font-family: monospace;">{{ user.coins
+                    }}</span><br><br>
+                <i class="material-icons">bookmark</i>some booooks<br>
+            </div>
+        </div>
+        <h5 id="pannel">some body here<br>
+            some body here<br>
+            some body here<br>
+            some body here<br>
+            some body here<br>some body here<br>
+            some body here<br>some body here<br>
+            some body here<br>some body here<br>
+            some body here<br>some body here<br>
+            some body here<br>some body here<br>
+            some body here<br>some body here<br>
+            some body here<br>some body here<br>
+        </h5>
     </div>
     <br>
     <br>

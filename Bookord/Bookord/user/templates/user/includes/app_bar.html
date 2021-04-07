@@ -8,7 +8,7 @@
 <!--how you add js to your pages-->
 <script src="{% static 'user/javascript/app_bar.js' %}"></script>
 
-{% if cloud %}
+{% if header.cloud %}
 {% include "user/includes/cloud.html" %}
 {% endif %}
 
@@ -18,7 +18,7 @@
     <h1 class="brand" id="brand">
         Book<spin style="color: rgb(164, 23, 65);">ord</spin>
         <h2 class="description" id="description">
-            record your readings
+            {{ header.message }}
         </h2>
     </h1>
     <div class="filler vbox">
@@ -28,7 +28,7 @@
     <div class="filler"></div>
     <nav class="navbar" id="navbar">
         <!-- for the sake of screen readers -->
-        {% for item in navbar_items %}
+        {% for item in header.navbar_items %}
         <a href="{{ item.link }}">{{ item.title }}</a>
         {% endfor %}
         <!--include icon in html-->
@@ -36,6 +36,6 @@
     </nav>
 </div>
 
-{% if cloud %}
+{% if header.cloud %}
 <div style="min-height: 150pt;"></div>
 {% endif %}
