@@ -23,9 +23,25 @@
                 <i class="material-icons">format_quote</i><i>{{ user.bio }}</i><br><br>
                 <!--find icons here https://material-ui.com/components/material-icons/-->
                 <!--also change icons' CamelCaes name to snake_case to get it work-->
-                <i class="material-icons" id="coin">attach_money</i><span style="font-family: monospace;">{{ user.coins
-                    }}</span><br><br>
-                <i class="material-icons">bookmark</i>some booooks<br>
+                <i class="material-icons" id="coin">attach_money</i>
+                <span style="font-family: monospace;">{{ user.coins }}</span><br><br>
+                <i class="material-icons">bookmark</i>
+                <!--some relationships I learned-->
+                <!--to get users who bookmarked a book : <an object book>.user_set.all()-->
+                <!--to get books which a user bookmarked : <an object user>.bookmarks.all()-->
+                <!--to get the owner of a book : <an object book>.owner-->
+                <!--to get the owner of a book : <an object book>.owner-->
+                <!--to get the books a user owns : <an object user>.book_set.all()-->
+                {%for book in user.bookmarks.all %}
+                <a href="{% url 'core:index' user.username book.id %}" class="link-item">{{ book.title }}</a>
+                {% endfor %}
+                <br><br>
+                <i class="material-icons">people</i>
+                {%for following in user.followings.all %}
+                <a href="{% url 'user:profile' following.username %}" class="link-item">{{ following.first_name }}
+                    {{ following.last_name }}</a>
+                {% endfor %}
+                <br>
             </div>
         </div>
         <h5 id="pannel">some body here<br>

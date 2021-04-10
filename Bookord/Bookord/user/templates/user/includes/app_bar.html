@@ -29,10 +29,10 @@
     <nav class="navbar" id="navbar">
         <!-- for the sake of screen readers -->
         {% for item in header.navbar_items %}
-        <a href="{{ item.link }}">{{ item.title }}</a>
+        <a href="{{ item.link }}" class="menu-item">{{ item.title }}</a>
         {% endfor %}
         <!--include icon in html-->
-        <a href="hi" id="notif"><i class="material-icons">notifications</i></a>
+        <a href="hi" class="menu-item"><i class="material-icons">notifications</i></a>
     </nav>
 </div>
 

@@ -27,8 +27,8 @@ class User(models.Model):
     age = models.PositiveIntegerField(null=True, blank=True)
     gender = models.BooleanField(null=True, blank=True)
     bio = models.TextField(blank=True)
-    followings = models.ManyToManyField('User')
-    bookmarks = models.ManyToManyField('Book')
+    followings = models.ManyToManyField('User', null=True, blank=True)
+    bookmarks = models.ManyToManyField('Book', null=True, blank=True)
     coins = models.PositiveBigIntegerField(default=0)
 
 

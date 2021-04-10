@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
+from ..user.models import Book
 
 # Create your views here.
 
@@ -9,7 +10,11 @@ def index_view(request, username, book_id):
 
 
 def aphorism_view(request, username, book_id):
-    return render(request, 'core/aphorism.html')
+    book = get_object_or_404(Book, pk=book_id)
+    context = {
+        'book': book
+    }
+    return render(request, 'core/aphorism.html', context)
 
 
 def language_view(request, username, book_id):

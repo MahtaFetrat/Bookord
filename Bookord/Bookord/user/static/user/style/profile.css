@@ -90,3 +90,7 @@ https://css-tricks.com/snippets/css/complete-guide-grid/#:~:text=CSS%20Grid%20La
     -webkit-text-fill-color: transparent;
   }
 }
+
+.link-item {
+  text-decoration: none;
+}
