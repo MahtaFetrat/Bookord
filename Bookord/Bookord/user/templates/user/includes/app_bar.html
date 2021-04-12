@@ -6,6 +6,9 @@
 <!--how you include google icons in html-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <!--how you add js to your pages-->
+
+<!--how u pass context variable to js file, see https://stackoverflow.com/questions/8683922/how-can-i-pass-my-context-variables-to-a-javascript-file-in-django-->
+{{ header|json_script:"header" }}
 <script src="{% static 'user/javascript/app_bar.js' %}"></script>
 
 {% if header.cloud %}
@@ -15,18 +18,20 @@
 <div class="hbox" style="position: sticky; top: 0; background-color: white;" id="brand-container">
     <!-- see this page for statics like images https://docs.djangoproject.com/en/3.1/howto/static-files/ -->
     <!-- <img src="{%static 'user/images/logo.png' %}" alt="Bookord logo" id="logo"> -->
-    <h1 class="brand" id="brand">
+    <h1 id="brand">
         Book<spin style="color: rgb(164, 23, 65);">ord</spin>
+        {% if header.cloud %}
         <h2 class="description" id="description">
             {{ header.message }}
         </h2>
+        {% endif %}
     </h1>
     <div class="filler vbox">
     </div>
 </div>
 <div class="hbox" id="appbar">
     <div class="filler"></div>
-    <nav class="navbar" id="navbar">
+    <nav id="navbar">
         <!-- for the sake of screen readers -->
         {% for item in header.navbar_items %}
         <a href="{{ item.link }}" class="menu-item">{{ item.title }}</a>

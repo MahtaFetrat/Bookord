@@ -20,7 +20,7 @@ from .user import views
 
 urlpatterns = [
     path('', views.homepage_view, name='homepage'),
-    path('books/', include('Bookord.core.urls')),
-    path('users/', include('Bookord.user.urls')),
+    path('book/', include('Bookord.core.urls')),
+    path('user/', include('Bookord.user.urls')),
     path('admin/', admin.site.urls),
 ]

@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.brand {
+.brand-cloud {
   position: relative;
   margin-left: 20pt;
   font-size: xx-large;
@@ -23,6 +23,18 @@
   animation-duration: 1s;
   animation-name: brand;
   animation-iteration-count: 1;
+}
+
+.brand {
+  position: relative;
+  margin-left: 20pt;
+  font-size: xx-large;
+  font-family: "Audiowide", sans-serif; /* this together with the <link> tag in html is to add a font*/
+  color: rgb(88, 88, 88);
+  border-radius: 30% 70% 38% 62% / 30% 30% 70% 70%;
+  padding: 0pt;
+  background-color: transparent;
+  box-shadow: -12px -6px 16px 0px transparent;
 }
 
 .description {
@@ -43,7 +55,7 @@
   animation-iteration-count: 1;
 }
 
-/*to fill the extra space in flex dsplays*/
+/*to fill the extra space in flex displays*/
 .filler {
   flex-grow: 1;
 }
@@ -58,10 +70,9 @@
 }
 
 .menu-item:hover {
-  background-color: rgb(249, 249, 249);
+  text-shadow: 0px 0px 20px rgb(240, 240, 240);
   color: rgb(164, 23, 65);
   transition-duration: 0.5s;
-  border-color: transparent rgb(249, 249, 249) transparent transparent;
 }
 
 #appbar {
@@ -72,7 +83,7 @@
   top: 0;
 }
 
-.navbar {
+.navbar-cloud {
   border-radius: 30% 70% 40% 60% / 36% 14% 86% 64%;
   background-color: rgb(249, 249, 249);
   box-shadow: 6px -3px 16px 0px rgb(182, 182, 182);
@@ -82,7 +93,14 @@
   animation-iteration-count: 1;
 }
 
-#notif {
+.navbar {
+  border-radius: 30% 70% 40% 60% / 36% 14% 86% 64%;
+  background-color: transparent;
+  box-shadow: 6px -3px 16px 0px transparent;
+  padding-top: 5pt;
+  padding-left: 5pt;
+  padding-right: 5pt;
+  padding-bottom: 60pt;
 }
 
 /*this is how you create animation in css*/
@@ -135,12 +153,11 @@
   transition: all 0.5s;
 }
 
-.brand-container-anim {
-  background-color: grey;
-  transition: all 0.5s;
+.brand-container {
+  box-shadow: 0px 5vh 40px -40px rgb(123, 123, 123);
 }
 
-.appbar-anim {
-  background-color: grey;
+.brand-container-anim {
+  box-shadow: 0px 5vh 40px -40px rgb(123, 123, 123);
   transition: all 0.5s;
 }
