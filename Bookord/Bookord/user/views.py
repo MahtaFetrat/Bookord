@@ -17,17 +17,22 @@ def profile_view(request, username):
     user = get_object_or_404(User, pk=username)
     context = {
         'user': user,
-        'header' : {
+        'header': {
             'navbar_items': [{'title': 'FRIENDS', 'link': 'hi'}, {'title': 'BOOKS', 'link': 'hi'}, {'title': 'HOME', 'link': 'hi'}],
-            'message' : 'welcome ' + user.first_name + ' :)',
-            'cloud' : False
+            'message': 'welcome ' + user.first_name + ' :)',
+            'cloud': False
         }
     }
     return render(request, 'user/profile.html', context)
 
 
 def login_view(request):
-    return render(request, 'user/login.html')
+    context = {
+        'header': {
+            'navbar_items': [{'title': 'SIGNUP', 'link': 'hi'}, {'title': 'HOME', 'link': 'hi'}]
+        }
+    }
+    return render(request, 'user/login.html', context)
 
 
 def signup_view(request):

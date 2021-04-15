@@ -1,0 +1,30 @@
+#login {
+  min-height: 60vh;
+  min-width: 40vw;
+  background-color: rgba(59, 59, 59, 0.1);
+  backdrop-filter: blur(
+    5px
+  ); /*set blurr effect only on the bavkground of an element*/
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding: 20px;
+  border-color: white; /*to set border for a div, all attributes of it must be declared*/
+  border-width: 2px;
+  border-style: solid;
+}
+
+#login-title {
+  font-family: "Audiowide", cursive;
+  font-size: xx-large;
+}
+
+#card-container {
+  margin-top: -7vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

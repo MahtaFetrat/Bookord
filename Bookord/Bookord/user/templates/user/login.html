@@ -1,1 +1,42 @@
-Hey we are in LOGIN *_*
+{% extends "user/basic.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'user/style/login.css' %}">
+<script src="{% static 'user/javascript/login.js' %}"></script>
+<style>
+    body {
+        height: 100%;
+        background-color: black;
+        /*how you set image to body bg*/
+        background-image: url({% static 'user/images/starry.png' %});
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    #login-body {
+        height: 100%;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-image: url({% static 'user/images/ast.png' %});
+        background-position-x: -5vw;
+        position: relative;
+        /*in order not to take space in the document flow*/
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div id="login-body">
+    {% include "user/includes/login_app_bar.html" %}
+    <div id="card-container">
+        <div id="login">
+            <strong id="login-title">LOGIN</strong>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -15,7 +15,10 @@
 {% include "user/includes/cloud.html" %}
 {% endif %}
 
-<div class="hbox" style="position: sticky; top: 0; background-color: white;" id="brand-container">
+<!--this is how you use context variable in html attributes-->
+<!-- <div class="hbox" style="position: sticky; top: 0; background: rgba(255, 255, 255, {{ header.alpha }});" id="brand-container"> -->
+
+<div class="hbox" style="position: sticky; top: 0; background: white;" id="brand-container">
     <!-- see this page for statics like images https://docs.djangoproject.com/en/3.1/howto/static-files/ -->
     <!-- <img src="{%static 'user/images/logo.png' %}" alt="Bookord logo" id="logo"> -->
     <h1 id="brand">

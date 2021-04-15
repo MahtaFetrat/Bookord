@@ -1,0 +1,17 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'user/style/login_app_bar.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+
+<div class="hbox" id="brand-container">
+    <h1 class="brand">
+        Book<spin style="color: rgb(164, 23, 65);">ord</spin>
+    </h1>
+    <div class="filler vbox">
+    </div>
+    <nav id="navbar">
+        {% for item in header.navbar_items %}
+        <a href="{{ item.link }}" class="menu-item">{{ item.title }}</a>
+        {% endfor %}
+    </nav>
+</div>
