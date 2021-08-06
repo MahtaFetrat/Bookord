@@ -1,0 +1,143 @@
+{% extends "Bookord/basic.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'user/style/profile.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="{% static 'user/javascript/profile.js' %}"></script>
+{% endblock %}
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+
+<!--this is how u use a template in another-->
+{% include "user/includes/app_bar.html" %}
+
+<div>
+    <div class="grid">
+        <!--read about |add: filter to be able to have some dynamic link like : src="... static 'pathfoo/'|add:user.pathfoo|add:'pathcontinuum' ..."-->
+        <!--use .url to get path of model ImageField-->
+        <div id="side-pannel">
+            <img src="{% static user.profile.profile_image.url %}" id="pic" style="object-fit: contain; width: 100%;"/>
+            <div>
+                <strong>{{ user.first_name }}</strong> <strong>{{ user.last_name }}</strong><br><br>
+                <i class="material-icons">format_quote</i><i>{{ user.profile.bio }}</i><br><br>
+                <!--find icons here https://material-ui.com/components/material-icons/-->
+                <!--also change icons' CamelCaes name to snake_case to get it work-->
+                <i class="material-icons" id="coin">attach_money</i>
+                <span style="font-family: monospace;">{{ user.profile.coins }}</span><br><br>
+                <i class="material-icons">bookmark</i>
+                <!--some relationships I learned-->
+                <!--to get users who bookmarked a book : <an object book>.user_set.all()-->
+                <!--to get books which a user bookmarked : <an object user>.bookmarks.all()-->
+                <!--to get the owner of a book : <an object book>.owner-->
+                <!--to get the owner of a book : <an object book>.owner-->
+                <!--to get the books a user owns : <an object user>.book_set.all()-->
+                {%for book in user.profile.bookmarks.all %}
+                <a href="{% url 'core:index' user.username book.id %}" class="link-item">{{ book.title }}</a>
+                {% endfor %}
+                <br><br>
+                <i class="material-icons">people</i>
+                {%for following in user.profile.followings.all %}
+                <a href="{% url 'user:profile' following.username %}" class="link-item">{{ following.first_name }}
+                    {{ following.last_name }}</a>
+                {% endfor %}
+                <br>
+            </div>
+        </div>
+        <h5 id="pannel">some body here<br>
+            some body here<br>
+            some body here<br>
+            some body here<br>
+            some body here<br>some body here<br>
+            some body here<br>some body here<br>
+            some body here<br>some body here<br>
+            some body here<br>some body here<br>
+            some body here<br>some body here<br>
+            some body here<br>some body here<br>
+            some body here<br>some body here<br>
+        </h5>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+<!--
+hello {{ user.first_name }} ^_^
+welcome to Bookord $$)
+<br>
+
+{% for book in user.book_set.all %}
+<a href="{% url 'core:index' user.username book.id %}">
+    {{book.title}}
+</a>
+{% endfor %}
+-->
+{% endblock %}

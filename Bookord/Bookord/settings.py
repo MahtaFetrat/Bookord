@@ -33,12 +33,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
-    'Bookord.core.apps.CoreConfig',
-    'Bookord.user.apps.UserConfig',
+    'core.apps.CoreConfig',
+    'user.apps.UserConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -62,7 +61,9 @@ ROOT_URLCONF = 'Bookord.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # added this directory here so Django will look for templates here as well. to be exact, this is because of
+        # the {% extends 'mysite/base.html' %} line in all app templates to be recognized
+        'DIRS': [os.path.join(str(BASE_DIR) + '/Bookord', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,7 +78,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Bookord.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -87,7 +87,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -107,7 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -121,14 +119,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
 
-#adding another directory where 'static' is going to look for in addition to the dir of 'static/' in each of the installed apps
-#in this case it looks in the same directory where 'media/' is so that an ImageField path starting like 'media/user_username1' can be found by statics
 STATICFILES_DIRS = [
+    # adding another directory where 'static' is going to look for in addition to the dir of 'static/' in each of the
+    # installed apps in this case it looks in the same directory where 'media/' is so that an ImageField path
+    # starting like 'media/user_username1' can be found by statics
     BASE_DIR / "",
+    # setup STATICFILES_DIRS to tell Django look for static files in these directories as well
+    # this is necessary for the static files that are not tied to a specific app
+    os.path.join(str(BASE_DIR) + '/Bookord/', 'static')
 ]

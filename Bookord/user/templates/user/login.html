@@ -1,0 +1,46 @@
+{% extends "Bookord/basic.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'user/style/login.css' %}">
+<script src="{% static 'user/javascript/login.js' %}"></script>
+<style>
+    body {
+        height: 100%;
+        background-color: {{ style.color }};
+        /*how you set image to body bg*/
+        background-image: url({% static 'user/images/starry.png' %});
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    #login-body {
+        height: 100%;
+        position: relative;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-image: {% if style.flip %}url({% static 'user/images/ast.png' %});{% else %}url({% static 'user/images/ast-flip.png' %});{% endif %}
+        background-position-x: {% if style.flip %}-5vw;{% else %}5vw;{% endif %}
+        /*in order not to take space in the document flow*/
+    }
+</style>
+{% endblock %}
+{% block title %}Login{% endblock %}
+{% block body %}
+<div id="login-body">
+    {% include "user/includes/login_app_bar.html" %}
+    <div id="card-container">
+        <div id="login">
+            <strong id="login-title">{{ form_title }}</strong>
+            <form action="{% url 'user:profile' form.your_name %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
